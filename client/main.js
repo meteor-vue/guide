@@ -2,7 +2,9 @@ import Vue from 'vue';
 
 Meteor.startup(() => {
   new Vue({
-    el: 'body',
-    replace: false
+    el: '#app',
+    render: (createElement) => {
+      return createElement(Vue.component('app'));
+    }
   });
 });

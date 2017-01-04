@@ -10,6 +10,7 @@
 
 <script>
   import {ReactiveVar} from 'meteor/reactive-var';
+  import Vue from 'vue';
 
   let counter = new ReactiveVar(0);
 
@@ -28,13 +29,15 @@
       }
     },
 
-    methods: {
+    computed: {
       count() {
         return counter.get();
-      },
+      }
+    },
 
+    methods: {
       addOne() {
-        counter.set('counter', counter.get() + 1);
+        counter.set(counter.get() + 1);
 
         this.buttonLabel = labels[Math.round(Math.random() * (labels.length - 1))];
       }
