@@ -21,7 +21,7 @@ Object.defineProperty(Tracker, 'active', {
   enumerable: true,
   configurable: true,
   get: function () {
-    return !!Vue.util.Dep.target;
+    return !!Vue.observer.Dep.target;
   }
 });
 
@@ -36,16 +36,16 @@ Object.defineProperty(Tracker, 'currentComputation', {
   enumerable: true,
   configurable: true,
   get: function () {
-    if (!Vue.util.Dep.target) {
+    if (!Vue.observer.Dep.target) {
       return null;
     }
 
-    if (!Vue.util.Dep.target._computation) {
-      // Vue.util.Dep.target._computation is set by the constructor.
-      new Tracker.Computation(null, null, Vue.util.Dep.target, privateObject);
+    if (!Vue.observer.Dep.target._computation) {
+      // Vue.observer.Dep.target._computation is set by the constructor.
+      new Tracker.Computation(null, null, Vue.observer.Dep.target, privateObject);
     }
 
-    return Vue.util.Dep.target._computation;
+    return Vue.observer.Dep.target._computation;
   }
 });
 
@@ -223,8 +223,8 @@ Tracker.Computation = function (f, onError, watcher, _private) {
   else {
     f = withNoYieldsAllowed(f);
 
-    var vm = (Vue.util.Dep.target && Vue.util.Dep.target.vm) || {_watchers: [], name: 'Tracker'};
-    self._vueWatcher = new Vue.util.Watcher(vm, function (vm) {
+    var vm = (Vue.observer.Dep.target && Vue.observer.Dep.target.vm) || {_watchers: [], name: 'Tracker'};
+    self._vueWatcher = new Vue.observer.Watcher(vm, function (vm) {
       f(self);
     }, function (value, oldValue) {
       // Not really used.
@@ -436,7 +436,7 @@ Tracker.Computation.prototype.run = function () {
  * @instanceName dependency
  */
 Tracker.Dependency = function () {
-  this._vueDep = new Vue.util.Dep();
+  this._vueDep = new Vue.observer.Dep();
 };
 
 // http://docs.meteor.com/#dependency_depend
@@ -503,7 +503,7 @@ Tracker.flush = function (options) {
   try {
     // Tracker flush does not limit the number of updates, but watcher does.
     // So we set the limit to 10000 which is infinity for most practical purposes.
-    Vue.util.forceFlush((options && options._maxUpdateCount) || 10000);
+    Vue.observer.forceFlush((options && options._maxUpdateCount) || 10000);
   }
   finally {
     throwFirstError = false;
@@ -566,13 +566,13 @@ Tracker.autorun = function (f, options) {
  * @param {Function} func A function to call immediately.
  */
 Tracker.nonreactive = function (f) {
-  var previous = Vue.util.Dep.target;
-  Vue.util.Dep.target = null;
+  var previous = Vue.observer.Dep.target;
+  Vue.observer.Dep.target = null;
   try {
     return f();
   }
   finally {
-    Vue.util.Dep.target = previous;
+    Vue.observer.Dep.target = previous;
   }
 };
 
@@ -599,7 +599,7 @@ Tracker.onInvalidate = function (f) {
  * @param {Function} callback A function to call at flush time.
  */
 Tracker.afterFlush = function (f) {
-  Vue.util.afterFlush(function () {
+  Vue.observer.afterFlush(function () {
     try {
       f();
     } catch (e) {
