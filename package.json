@@ -5,8 +5,8 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "6.18.0",
-    "meteor-node-stubs": "~0.2.0",
+    "babel-runtime": "6.23.0",
+    "meteor-node-stubs": "~0.2.6",
     "vue": "git://github.com/mitar/vue.git#tracker-compatibility"
   },
   "meteor": {
