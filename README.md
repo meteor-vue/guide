@@ -13,3 +13,10 @@ If you want to use this version of Vue which suport Vue-based Tracker in your ap
     ```
     $ git submodule add https://github.com/meteor-vue/tracker.git packages/tracker 
     ```
+* add the following to your `package.json`:
+
+    ```
+    "meteor": {
+      "vueVersion": 2
+    }
+    ```
