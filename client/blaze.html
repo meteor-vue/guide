@@ -1,5 +1,7 @@
 <template name="blaze-template">
+  <hr/>
   <p>This is a Blaze template.</p>
-  <p><a href="/">Go to Home from Blaze</a></p>
+  <p>Data context from Vue is: {{dataContext}}</p>
+  <p>{{#RouterLink to="/"}}Go to Home from Blaze{{/RouterLink}}</p>
   <p><a href="/vue-meteor.png">Image</a></p>
 </template>

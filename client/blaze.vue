@@ -1,5 +1,8 @@
 <template>
-  <div v-blaze="'blaze-template'"></div>
+  <div>
+    <div>Data context from Vue: <input type="string" v-model="dataContext"></div>
+    <blaze-template template="blaze-template" :data="{dataContext: dataContext}"></blaze-template>
+  </div>
 </template>
 
 <script>
@@ -15,4 +18,12 @@
       },
     ]);
   });
+
+  export default {
+    data() {
+      return {
+        dataContext: "foobar",
+      }
+    },
+  }
 </script>
