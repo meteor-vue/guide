@@ -1,4 +1,6 @@
-An very simple example Meteor app using Vue-based Tracker and Vue components. You can run it:
+An very simple example Meteor app using Vue-based Tracker and Vue components, and how to integrate with Blaze.
+
+You can run it:
 
 ```
 $ git clone https://github.com/meteor-vue/guide.git
@@ -24,4 +26,5 @@ If you want to use this version of Vue which supports Vue-based Tracker in your 
 * use [meteor.js](https://github.com/meteor-vue/todomvc/blob/master/client/meteor.js) code to get `$autorun` and `$subscribe` inside Vue components
   (pending publishing it as a package)
 
-See [TodoMVC Meteor + Vue.js example](https://github.com/meteor-vue/todomvc/blob/master/client/todos-display.vue) how to use all this together in a component.
+See [TodoMVC Meteor + Vue.js example](https://github.com/meteor-vue/todomvc/blob/master/client/todos-display.vue) how to use all this together in a
+component, in a pure Vue-only Meteor app.
