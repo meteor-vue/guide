@@ -1,6 +1,5 @@
 <template>
-  <div class="app">
-    <h1>Simple Meteor example using Vue</h1>
+  <div>
     <p>
       You pressed the button {{count}} times.
     </p>
@@ -9,8 +8,9 @@
 </template>
 
 <script>
-  import {ReactiveVar} from 'meteor/reactive-var';
   import Vue from 'vue';
+  import {RouterFactory} from 'meteor/akryum:vue-router2';
+  import {ReactiveVar} from 'meteor/reactive-var';
 
   let counter = new ReactiveVar(0);
 
@@ -21,6 +21,16 @@
     'Hmmmm...', 'You know, you are wasting time clicking me.',
     'No really, you can click me as much as you want.', 'Click me to level up!'
   ];
+
+  RouterFactory.configure((factory) => {
+    factory.addRoutes([
+      {
+        path: '/',
+        name: 'home',
+        component: Vue.component('home'),
+      },
+    ]);
+  });
 
   export default {
     data() {
@@ -44,18 +54,3 @@
     }
   }
 </script>
-
-<style>
-  body {
-    margin: 30px;
-  }
-
-  a {
-    color: #40b883;
-    text-decoration: none;
-  }
-
-  h1 {
-    font-weight: normal;
-  }
-</style>

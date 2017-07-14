@@ -17,5 +17,7 @@ ecmascript@0.8.1              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.4            # Server-side component of the `meteor shell` command
 
 akryum:vue-component
-static-html
 dynamic-import@0.1.1
+akryum:vue-router2
+akryum:vue-blaze-template
+blaze-html-templates

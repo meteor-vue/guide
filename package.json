@@ -1,5 +1,5 @@
 {
-  "name": "vue-test",
+  "name": "vue-guide",
   "private": true,
   "scripts": {
     "start": "meteor run"
@@ -7,9 +7,11 @@
   "dependencies": {
     "babel-runtime": "6.23.0",
     "meteor-node-stubs": "~0.2.6",
-    "vue": "git://github.com/mitar/vue.git#meteor"
+    "vue": "git://github.com/mitar/vue.git#meteor",
+    "vue-router": "^2.0.0"
   },
   "meteor": {
     "vueVersion": 2
-  }
+  },
+  "devDependencies": {}
 }
