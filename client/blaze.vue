@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div>Data context from Vue: <input type="string" v-model="dataContext"></div>
-    <blaze-template template="blaze-template" :data="{dataContext: dataContext}"></blaze-template>
+    <p>Data context from Vue: <input type="string" v-model="dataContext"></p>
+    <p>Reactive slot value: <input type="string" v-model="slotValue"></p>
+    <blaze-template template="blaze-template" :data="{dataContext}"></blaze-template>
+    <blaze-template template="blaze-block-helper">
+      <p>This is Slot content from Vue: {{slotValue}}</p>
+      <life-cycle />
+    </blaze-template>
   </div>
 </template>
 
@@ -22,7 +27,8 @@
   export default {
     data() {
       return {
-        dataContext: "foobar",
+        dataContext: "foo",
+        slotValue: "bar",
       }
     },
   }

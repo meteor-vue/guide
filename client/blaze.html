@@ -5,3 +5,10 @@
   <p>{{#RouterLink to="/"}}Go to Home from Blaze{{/RouterLink}}</p>
   <p><a href="/vue-meteor.png">Image</a></p>
 </template>
+
+<template name="blaze-block-helper">
+  <hr/>
+  <p>This is a Blaze block helper.</p>
+  <p>Slot content from Vue:</p>
+  {{> Template.contentBlock}}
+</template>

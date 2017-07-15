@@ -11,7 +11,8 @@ Package.onUse(function(api) {
     'ecmascript',
     'blaze',
     'templating',
-    'ejson'
+    'ejson',
+    'underscore'
   ]);
 
   api.use([
