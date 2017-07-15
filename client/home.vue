@@ -22,17 +22,7 @@
     'No really, you can click me as much as you want.', 'Click me to level up!'
   ];
 
-  RouterFactory.configure((factory) => {
-    factory.addRoutes([
-      {
-        path: '/',
-        name: 'home',
-        component: Vue.component('home'),
-      },
-    ]);
-  });
-
-  export default {
+  const component = {
     data() {
       return {
         buttonLabel: 'Click me!'
@@ -52,5 +42,17 @@
         this.buttonLabel = labels[Math.round(Math.random() * (labels.length - 1))];
       }
     }
-  }
+  };
+
+  RouterFactory.configure((factory) => {
+    factory.addRoutes([
+      {
+        path: '/',
+        name: 'home',
+        component,
+      },
+    ]);
+  });
+
+  export default component;
 </script>

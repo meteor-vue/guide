@@ -8,8 +8,8 @@ Meteor.startup(() => {
   }).create();
 
   new Vue({
+    router,
     el: '#app',
-    router: router,
     render: (createElement) => {
       return createElement(Vue.component('layout'));
     }
