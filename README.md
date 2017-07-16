@@ -23,8 +23,7 @@ If you want to use this version of Vue which supports Vue-based Tracker in your 
     }
     ```
 
-* use [meteor.js](https://github.com/meteor-vue/todomvc/blob/master/client/meteor.js) code to get `$autorun` and `$subscribe` inside Vue components
-  (pending publishing it as a package)
+* add [`vuejs:meteor-integration` package](https://github.com/meteor-vue/meteor-integration) package to get `$autorun` and `$subscribe` inside Vue components
 * if you need integration with Blaze, use [`vuejs:blaze-integration` package](https://github.com/meteor-vue/blaze-integration)
 
 See [TodoMVC Meteor + Vue.js example](https://github.com/meteor-vue/todomvc/blob/master/client/todos-display.vue) how to use all this together in a
