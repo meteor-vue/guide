@@ -4,6 +4,8 @@
   <p>Data context from Vue is: {{dataContext}}</p>
   <p>{{#RouterLink to="/"}}Go to Home from Blaze{{/RouterLink}}</p>
   <p><a href="/vue-meteor.png">Image</a></p>
+  <p>Vue component rendered from Blaze:</p>
+  {{> VueComponent component="life-cycle" props=props}}
 </template>
 
 <template name="blaze-block-helper">

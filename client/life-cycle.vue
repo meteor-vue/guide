@@ -1,11 +1,20 @@
 <template>
-  <ul>
-    <li v-for="state in states">{{state}}</li>
-  </ul>
+  <div>
+    <ul>
+      <li v-for="state in states">{{state}}</li>
+    </ul>
+    <p>Timestamp: {{timestamp}}</p>
+  </div>
 </template>
 
 <script>
   export default {
+    props: {
+      timestamp: {
+        default: 'none',
+      },
+    },
+
     data() {
       return {
         states: [],
