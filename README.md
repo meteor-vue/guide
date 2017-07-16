@@ -1,4 +1,4 @@
-An very simple example Meteor app using Vue-based Tracker and Vue components, and how to integrate with Blaze.
+A very simple example Meteor app using Vue-based Tracker and Vue components, and how to integrate with Blaze.
 
 You can run it:
 
