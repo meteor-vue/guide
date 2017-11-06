@@ -26,5 +26,12 @@ If you want to use this version of Vue which supports Vue-based Tracker in your 
 * add [`vuejs:meteor-integration` package](https://github.com/meteor-vue/meteor-integration) package to get `$autorun` and `$subscribe` inside Vue components
 * if you need integration with Blaze, use [`vuejs:blaze-integration` package](https://github.com/meteor-vue/blaze-integration)
 
+Note: Some life-cycle methods (i.e., `created` and `mounted`) in Vue are run inside a reactive context.
+This means that if you call reactive code inside those methods, the code can invalidate the context and trigger update.
+Another effect of this is that Tracker reactive code from `created` gets invalidated on the next update, but is never rerun
+(because `created` callback is not run again, but `updated` is instead). If you do not want this, consider running reactive
+code in `created` inside `Tracker.nonreactive` (to prevent reactivity) or `$autorun` (to limit its scope and make it persist
+across updates).
+
 See [TodoMVC Meteor + Vue.js example](https://github.com/meteor-vue/todomvc/blob/master/client/todos-display.vue) how to use all this together in a
 component, in a pure Vue-only Meteor app.
