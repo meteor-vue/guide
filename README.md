@@ -3,7 +3,7 @@ A very simple example Meteor app using Vue-based Tracker and Vue components, and
 You can run it:
 
 ```
-$ git clone https://github.com/meteor-vue/guide.git
+$ git clone --recursive https://github.com/meteor-vue/guide.git
 $ meteor npm install
 $ meteor
 ```
