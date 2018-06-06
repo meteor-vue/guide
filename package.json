@@ -5,11 +5,11 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.40",
+    "@babel/runtime": "^7.0.0-beta.49",
     "babel-runtime": "6.23.0",
-    "meteor-node-stubs": "~0.2.6",
+    "meteor-node-stubs": "^0.4.1",
     "vue": "git://github.com/mitar/vue.git#meteor",
-    "vue-router": "^2.0.0"
+    "vue-router": "^3.0.1"
   },
   "meteor": {
     "vueVersion": 2
