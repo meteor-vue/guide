@@ -1,17 +1,15 @@
 import Vue from 'vue';
-import {RouterFactory, nativeScrollBehavior} from 'meteor/akryum:vue-router2';
+
+import Layout from './layout';
+import router from './router';
+
+import './index.html';
+
+Vue.config.productionTip = false;
 
 Meteor.startup(() => {
-  const router = new RouterFactory({
-    mode: 'history',
-    scrollBehavior: nativeScrollBehavior,
-  }).create();
-
   new Vue({
     router,
-    el: '#app',
-    render: (createElement) => {
-      return createElement(Vue.component('layout'));
-    }
-  });
+    render: (h) => h(Layout),
+  }).$mount('#app');
 });

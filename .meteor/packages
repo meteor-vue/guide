@@ -18,6 +18,5 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 
 akryum:vue-component
 dynamic-import@0.3.0
-akryum:vue-router2
 vuejs:blaze-integration
 blaze-html-templates

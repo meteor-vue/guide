@@ -11,41 +11,26 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  import {RouterFactory} from 'meteor/akryum:vue-router2';
+export default {
+  data() {
+    return {
+      dataContext: "foo",
+      slotValue: "bar",
+      timestamp: new Date().toString(),
+    }
+  },
 
-  const component = {
-    data() {
-      return {
-        dataContext: "foo",
-        slotValue: "bar",
-        timestamp: new Date().toString(),
-      }
-    },
+  created() {
+    this.interval = setInterval(() => {
+      this.timestamp = new Date().toString();
+    }, 1000);
+  },
 
-    created() {
-      this.interval = setInterval(() => {
-        this.timestamp = new Date().toString();
-      }, 1000);
-    },
-
-    destroyed() {
-      if (this.interval) {
-        clearInterval(this.interval);
-        this.interval = null;
-      }
-    },
-  };
-
-  RouterFactory.configure((factory) => {
-    factory.addRoutes([
-      {
-        component,
-        path: '/blaze',
-        name: 'blaze',
-      },
-    ]);
-  });
-
-  export default component;
+  destroyed() {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
+  }
+}
 </script>
